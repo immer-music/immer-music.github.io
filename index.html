@@ -1,38 +1,54 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>immer music</title>
+    <title>Immer Music</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    
-    <header>
-        <div class="logo-main">
-            <a href="index.html">immer music</a>
-        </div>
-        <div class="top-buttons">
-            <a href="/subpage/works.html">Works</a>
-            <a href="/subpage/about.html">About</a>
-        </div>
-    </header>
-
-    <div style="padding:56.25% 0 0 0; position:relative; margin-bottom: 3px;"><iframe src="https://player.vimeo.com/video/1075643093?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="[Lumiderm] 함은정 - Brightening Foundation-Free Sun Cream"></iframe></div>
-    <div style="padding:56.25% 0 0 0; position:relative;"><iframe src="https://player.vimeo.com/video/1075643093?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="[Lumiderm] 함은정 - Brightening Foundation-Free Sun Cream"></iframe></div>
-
+    <div class="top-bar">
+        <div class="logo"><a href="index.html" id="logo-animate">Immer Music</a></div>
+    </div>
     <main>
-        <p>테스트 메인 페이지.</p>
+        <div class="layout-wrapper">
+            <div class="side-col">
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">About</a>
+                    <a class="nav-link">Works</a>
+                    <a href="subpage/mediaart.html" class="nav-link submenu">Media Art</a>
+                    <a href="subpage/advertisement.html" class="nav-link submenu">Advertisement</a>
+                    <a href="subpage/music.html" class="nav-link submenu">Music</a>
+                    <a href="subpage/contact.html" class="nav-link">Contact</a>
+                </nav>
+            </div>
+            <div class="main-content">
+                <section class="article">
+                    <p>
+                        immer music is a creative studio specializing in sound design, music production, and audio branding. <br><br>
+                        We craft immersive auditory experiences that captivate audiences and elevate brands. <br><br>
+                        Our team of talented composers and sound designers work closely with clients to bring their visions to life through innovative soundscapes and compelling musical compositions.<br><br>
+                        From concept to final production, we are dedicated to delivering high-quality audio solutions that resonate with listeners and leave a lasting impression.<br><br>
+                        Whether it's for film, advertising, gaming, or interactive media, immer music is your go-to partner for all things sound.<br><br>
+                        Let us help you create a sonic identity that sets you apart in a crowded marketplace.
+                    </p>
+                </section>
+                <section class="main-image">
+                    <video src="dd insta 1.mp4" poster="thumbnail.jpg" autoplay loop muted playsinline style="width:100%;max-width:800px;"></video>
+                </section>
+            </div>
+        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2025 immer music.</p>
+    <footer class="footer">
+            <div>
+                © 2025 Immer Music. All rights reserved.
+            </div>
     </footer>
 
-    <script src="scripts/main.js"></script>
-    <script src="https://player.vimeo.com/api/player.js"></script>
+<script src="scripts/logo-animate.js"></script>
+    
 </body>
 </html>

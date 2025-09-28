@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immer Music</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="logo"><a href="../index.html" id="logo-animate">Immer Music</a></div>
+    </div>
+    <main>
+        <div class="layout-wrapper">
+            <div class="side-col">
+                <nav class="nav">
+                    <a href="../index.html" class="nav-link">About</a>
+                    <a class="nav-link active">Works</a>
+                    <a href="../subpage/mediaart.html" class="nav-link submenu">Media Art</a>
+                    <a href="../subpage/advertisement.html" class="nav-link submenu active">Advertisement</a>
+                    <a href="../subpage/music.html" class="nav-link submenu">Music</a>
+                    <a href="../subpage/contact.html" class="nav-link">Contact</a>
+                </nav>
+            </div>
+            <div class="main-content">
+                <!-- gallery section -->
+                <section class="gallery">
+                    <div class="gallery-grid ad-gallery-grid"></div>
+                    <div class="gallery-detail" style="display:none;">
+                        <div id="detail-media"></div>
+                        <div id="detail-caption"></div>
+                        <div id="detail-desc"></div>
+                    </div>
+                </section>
+                <div class="gallery-minimap ad-minimap">
+                    <div class="minimap-overview ad-minimap-overview"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+            <div>
+                © 2025 Immer Music. All rights reserved.
+            </div>
+    </footer>
+
+    <script src="../scripts/gallery_advertisement.js"></script>
+
+</body>
+</html>

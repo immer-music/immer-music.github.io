@@ -1,103 +1,449 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
-    font-family: "Nanum Gothic", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    background-color: #ffffff;
-}
-
-header {
-    height: 20px;
+    font-family: 'Nanum Gothic', sans-serif;
     background: #ffffff;
-    color: #000000;
-    padding: 10px 0;
+    color: #222;
+
 }
 
-
-.logo-main {
-    position: absolute;
-    top: 12px;
-    left: 10px;
+.top-bar {
     display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 52px; /* 헤더+로고 높이 맞추기 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.logo-main a {
+.logo {
+    font-size: 1.25em;
+    margin: 0 0 11px 42px; /* 왼쪽 정렬, 아래 여백 */
+    color: #222;
+}
+
+.logo a {
     text-decoration: none;
-    padding: none;
-    background-color: none;
-    color: #000000;
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size: 18px;
+    color: #222;
 }
 
-
-.top-buttons {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.layout-wrapper {
     display: flex;
-    gap: 10px;
+    flex-direction: row;
+    max-width: 1400px;
+    gap: 48px;
+    box-sizing: border-box;
+    /* min-height, height, flex: 1 0 auto; 등 제거 */
 }
 
-.top-buttons a {
-    text-decoration: none;
-    padding: 5px 5px;
-    background-color: none;
-    color: #000000;
-    border-radius: 5px;
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
+.main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;   /* 가로 중앙 정렬 */
+    align-items: center;       /* 세로 중앙 정렬 */
+    width: 85.5vw;
+    height: 92vh;
+    gap: 48px;
+    min-height: 60vh;          /* 세로 중앙 정렬을 위해 최소 높이 지정 (필요시 조정) */
 
-.top-buttons a:hover {
-    background-color: #55555521;
-}
-
-
-h1 {
-    margin: 0;
-}
-
-nav {
-    margin: 20px 0;
-}
-
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 15px;
-}
-
-nav a:hover {
-    text-decoration: underline;
+    /* height, min-height 등 제거 */
 }
 
 main {
-    padding: 15px;
+    flex: 1 0 auto;
+    margin-top: 54px; /* .top-bar 높이만큼 띄움 */
+    padding-left: 220px; /* side-col의 width와 동일하게 */
 }
 
-main p {
-    line-height: 1.6;
+.side-col {
+    position: fixed;
+    top: 52px; /* .top-bar의 높이와 맞춤 */
+    left: 0px;
+    width: 160px; /* 원하는 너비로 조정 */
+    height: calc(100vh - 52px); /* 화면 전체 높이에서 top-bar 제외 */
+    border-right: 1px solid #e0e0e0;
+    padding: 0 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 99;
 }
 
-
-
-
-footer {
-    text-align: left;
-    vertical-align: middle;
-    background: #1111118a;
-    color: #ffffff;
-    position: relative;
-    bottom: 0;
+.nav {
+    display: flex;
+    margin-top: 5vh;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 11px;
     width: 100%;
-    height: 50px;
+    
 }
 
- footer p {
+.nav-link {
+    text-decoration: none;
+    color: #222;
+    font-size: 1em;
+    font-weight: 400;
+    padding: 2px 0 2px 0;
+    transition: color 0.2s, font-weight 0.2s;
+}
+
+.nav-link.active {
+    font-weight: 700;
+}
+
+.nav-link.submenu {
+    padding-left: 24px;
+    font-size: 0.9em;
+    color: #444;
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1.2; /* 줄간격도 살짝 줄임 */
+}
+
+.nav-link.submenu::before {
+    content: "-";
+    margin-right: 8px;
+    color: #888;
+    position: absolute;
+    left: 8px;
+}
+
+.nav-link:hover {
+    color: #888;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #222;
+    font-size: 1em;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: #888;
+}
+
+.nav-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    position: relative;
+}
+
+.nav-group-btn {
+    background: none;
+    border: none;
+    color: #222;
+    font-size: 1em;
+    font-weight: 500; /* 기존: 500, 더 얇게 하고 싶으면 normal 또는 400 */
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 0;
+    width: 100%;
     text-align: center;
-    font-size: 15px;
-    padding: 15px 0 0 10px;
- }
+    outline: none;
+    /* a 태그와 동일하게 */
+    transition: color 0.2s;
+}
+
+.nav-group-btn:hover,
+.nav-group.open > .nav-group-btn {
+    color: #888;
+    text-decoration: underline;
+}
+
+.nav-submenu {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    margin: 4px 0 4px 16px;
+    width: 100%;
+}
+
+.nav-group.open .nav-submenu {
+    display: flex;
+}
+
+.nav-submenu a {
+    color: #222;
+    text-decoration: none;
+    font-size: 0.98em;
+    padding-left: 12px;
+    position: relative;
+}
+
+.nav-submenu a::before {
+    content: "-";
+    margin-right: 6px;
+    color: #888;
+}
+
+.article {
+    min-width: 220px;        /* 너무 작아지지 않게 */
+    max-width: 600px;        /* 최대 너비 제한 */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    word-break: keep-all;    /* 단어 단위 줄바꿈 */
+    font-size: 0.98em;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    color: #222;
+
+
+}
+
+.main-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 600px;      /* 원하는 최대 너비 */
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;   /* 정사각형 프레임 */
+    position: relative;
+}
+
+.main-image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* 프레임에 꽉 채움, 잘릴 수 있음 */
+    box-shadow: 0 6px 32px rgba(0,0,0,0.12);
+    display: block;
+}
+
+.footer {
+    text-align: center;
+    color: #888;
+    padding: 3px 0;
+    font-size: 0.7em;
+
+    margin-top: auto; /* footer를 항상 아래로 밀어줌 */
+    width: 100%;
+}
+
+.gallery {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-grid {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+    height: 100%;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    cursor: pointer;
+    /* 테두리 제거 */
+    /* 사진 축소 */
+    transform: scale(0.96);
+    transition: filter 0.3s, transform 0.3s;
+    filter: brightness(0.8); /* 불투명 필터 */
+}
+
+.gallery-item:hover {
+    filter: none;
+    transform: scale(0.96); /* 마우스 오버시 애니메이션 없음 */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+.ad-gallery-grid {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* grid 관련 속성 오버라이드 */
+}
+
+.ad-gallery-grid .gallery-item iframe {
+    width: 75vw;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background: #000000;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    display: block;
+}
+
+
+
+
+
+.caption {
+    position: absolute;
+
+    padding: 4px 10px;
+    font-size: 1em;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.553);
+    color: #ffffff;
+    border: none;
+    line-height: 1;
+
+    width: 100%;
+}
+
+/* 상세창 오버레이 */
+.gallery-detail {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.851);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.gallery-detail img,
+#detail-media img,
+.gallery-detail iframe,
+#detail-media iframe,
+.gallery-detail video,
+#detail-media video {
+    max-width: 60vw;      /* 더 크게 */
+    max-height: 80vh;
+    object-fit: contain;
+    background: #fff;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    display: block;
+}
+
+
+
+/* 미니맵을 갤러리의 오른쪽에 "고정" */
+.gallery-minimap {
+    min-width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-right: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* 미니맵 내부 */
+.minimap-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 96px;
+    padding: 8px 0;
+}
+
+.minimap-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    width: 96px;
+    height: 72px;
+    padding: 2px;
+    box-sizing: border-box;
+    opacity: 0.5;
+    transition: border 0.2s, opacity 0.2s;
+
+}
+
+.minimap-page.active {
+    border: 2px solid #282828;
+    opacity: 1;
+}
+
+.minimap-thumb {
+    width: 100%;
+    height: 30.5px;
+    object-fit: cover;
+    background: #eee;
+}
+
+
+
+.ad-minimap-overview {
+    /* 광고 미니맵 전용 스타일 */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 96px;
+    padding: 8px 0;
+}
+
+.ad-minimap-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 72px;
+    padding: 2px;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: border 0.2s, opacity 0.2s;
+}
+
+.ad-minimap-page.active {
+    border: 2px solid #000000;
+    opacity: 1;
+}
+
+.ad-minimap-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #eee;
+    display: block;
+}
